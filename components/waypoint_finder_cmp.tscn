@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4t8olii78ojy"]
+
+[ext_resource type="Script" path="res://components/waypoint_finder_cmp.gd" id="1_1uvok"]
+
+[node name="WaypointFinderCmp" type="Node"]
+script = ExtResource("1_1uvok")

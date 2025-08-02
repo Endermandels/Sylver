@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blt4hvjokm8kd"]
+
+[ext_resource type="Script" path="res://components/input_cmp.gd" id="1_yun5p"]
+
+[node name="InputCMP" type="Node"]
+script = ExtResource("1_yun5p")

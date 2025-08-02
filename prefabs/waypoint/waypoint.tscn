@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dki3vklsq8aj1"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/waypoint/waypoint.gd" id="1_bvjiy"]
+
+[node name="Waypoint" type="Node2D"]
+position = Vector2(184, 152)
+script = ExtResource("1_bvjiy")
