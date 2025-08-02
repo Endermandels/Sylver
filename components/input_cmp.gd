@@ -12,7 +12,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
         input_vector = Vector2i(-1, 0)
     if event.is_action_pressed("move_right"):
         input_vector = Vector2i(1, 0)
-    print(input_vector)
 
 ## Returns input vector along EITHER the horizontal or vertical axis
 func get_input_vector() -> Vector2i:

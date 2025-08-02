@@ -5,6 +5,7 @@ class_name Player
 @export var input_cmp: InputCMP
 @export var waypoint_finder_cmp: WaypointFinderCMP
 @export var movement_cmp: MovementCMP
+@export var animation_cmp: AnimationCMP
 
 @export_group("External Nodes")
 @export var waypoints: Node2D
@@ -25,6 +26,8 @@ func _process(delta: float) -> void:
     if movement_cmp.go_to_point(self, closest_waypoint, delta):
         current_waypoint = closest_waypoint
         input_cmp.reset_input_vector()
+    
+    animation_cmp.handle_animation(input_cmp.get_input_vector())
 
     move_and_slide()
 

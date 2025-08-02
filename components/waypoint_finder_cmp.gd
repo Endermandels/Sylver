@@ -34,6 +34,5 @@ func get_closest_waypoint(current_waypoint: Waypoint, waypoints: Node2D, input_v
         # Check that the new distance is shorter than the shortest distance
         if diff_new.length() < diff_old.length():
             closest_waypoint = wp
-            print("Found closest point: ", closest_waypoint.position)
     
     return closest_waypoint if closest_waypoint else current_waypoint

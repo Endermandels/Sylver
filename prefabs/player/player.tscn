@@ -1,17 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkrtlrr8gj2pv"]
+[gd_scene load_steps=7 format=3 uid="uid://bkrtlrr8gj2pv"]
 
 [ext_resource type="Script" path="res://scripts/prefabs/player/player.gd" id="1_craxm"]
 [ext_resource type="Texture2D" uid="uid://ciraoyehjh8b6" path="res://assets/images/cat-overworld.png" id="1_p7egi"]
 [ext_resource type="PackedScene" uid="uid://blt4hvjokm8kd" path="res://components/input_cmp.tscn" id="3_qpr2x"]
 [ext_resource type="PackedScene" uid="uid://dw1wdejdm22bs" path="res://components/movement_cmp.tscn" id="4_ksu66"]
 [ext_resource type="PackedScene" uid="uid://c4t8olii78ojy" path="res://components/waypoint_finder_cmp.tscn" id="5_uagnd"]
+[ext_resource type="PackedScene" uid="uid://jw3a1l11ta75" path="res://components/animation_cmp.tscn" id="6_mfgjh"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("input_cmp", "waypoint_finder_cmp", "movement_cmp")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("input_cmp", "waypoint_finder_cmp", "movement_cmp", "animation_cmp")]
 motion_mode = 1
 script = ExtResource("1_craxm")
 input_cmp = NodePath("InputCMP")
 waypoint_finder_cmp = NodePath("WaypointFinderCmp")
 movement_cmp = NodePath("MovementCmp")
+animation_cmp = NodePath("AnimationCmp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_p7egi")
@@ -20,5 +22,9 @@ vframes = 3
 [node name="InputCMP" parent="." instance=ExtResource("3_qpr2x")]
 
 [node name="MovementCmp" parent="." instance=ExtResource("4_ksu66")]
+speed = 200.0
 
 [node name="WaypointFinderCmp" parent="." instance=ExtResource("5_uagnd")]
+
+[node name="AnimationCmp" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_mfgjh")]
+sprite = NodePath("../Sprite2D")

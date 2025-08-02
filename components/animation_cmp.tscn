@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jw3a1l11ta75"]
+
+[ext_resource type="Script" path="res://components/animation_cmp.gd" id="1_u3fbm"]
+
+[node name="AnimationCmp" type="Node"]
+script = ExtResource("1_u3fbm")
