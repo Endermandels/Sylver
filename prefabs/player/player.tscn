@@ -22,7 +22,7 @@ vframes = 3
 [node name="InputCMP" parent="." instance=ExtResource("3_qpr2x")]
 
 [node name="MovementCmp" parent="." instance=ExtResource("4_ksu66")]
-speed = 200.0
+speed = 100.0
 
 [node name="WaypointFinderCmp" parent="." instance=ExtResource("5_uagnd")]
 

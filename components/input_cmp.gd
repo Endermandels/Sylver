@@ -2,16 +2,23 @@ extends Node
 class_name InputCMP
 
 var input_vector: Vector2i = Vector2i.ZERO
+var input_buffer: Vector2i = Vector2i.ZERO
 
 func _unhandled_key_input(event: InputEvent) -> void:
+    # For now, don't allow changing directions mid travel (too much of a hassle)
     if event.is_action_pressed("move_up"):
-        input_vector = Vector2i(0, -1)
+        input_buffer = Vector2i(0, -1)
     if event.is_action_pressed("move_down"):
-        input_vector = Vector2i(0, 1)
+        input_buffer = Vector2i(0, 1)
     if event.is_action_pressed("move_left"):
-        input_vector = Vector2i(-1, 0)
+        input_buffer = Vector2i(-1, 0)
     if event.is_action_pressed("move_right"):
-        input_vector = Vector2i(1, 0)
+        input_buffer = Vector2i(1, 0)
+
+func _process(_delta: float) -> void:
+    if input_vector == Vector2i.ZERO:
+        input_vector = input_buffer
+        input_buffer = Vector2i.ZERO
 
 ## Returns input vector along EITHER the horizontal or vertical axis
 func get_input_vector() -> Vector2i:
