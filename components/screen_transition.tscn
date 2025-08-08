@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://components/screen_transition.gd" id="1_qcpdc"]
 
 [node name="ScreenTransition" type="Node2D" node_paths=PackedStringArray("color_rect")]
+z_index = 1000
 script = ExtResource("1_qcpdc")
 color_rect = NodePath("ColorRect")
 
