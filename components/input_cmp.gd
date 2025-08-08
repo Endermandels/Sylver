@@ -3,6 +3,7 @@ class_name InputCMP
 
 var input_vector: Vector2i = Vector2i.ZERO
 var input_buffer: Vector2i = Vector2i.ZERO
+var interact: bool = false
 
 func _unhandled_key_input(event: InputEvent) -> void:
     # For now, don't allow changing directions mid travel (too much of a hassle)
@@ -14,6 +15,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
         input_buffer = Vector2i(-1, 0)
     if event.is_action_pressed("move_right"):
         input_buffer = Vector2i(1, 0)
+    if event.is_action_pressed("interact") && input_buffer == Vector2i.ZERO && input_vector == Vector2i.ZERO:
+        interact = true
 
 func _process(_delta: float) -> void:
     if input_vector == Vector2i.ZERO:
@@ -26,3 +29,8 @@ func get_input_vector() -> Vector2i:
 
 func reset_input_vector() -> void:
     input_vector = Vector2i.ZERO
+
+func get_interact() -> bool:
+    var res = interact
+    interact = false
+    return res

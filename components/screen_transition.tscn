@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bshgw3x2gkwll"]
+
+[ext_resource type="Script" path="res://components/screen_transition.gd" id="1_qcpdc"]
+
+[node name="ScreenTransition" type="Node2D" node_paths=PackedStringArray("color_rect")]
+script = ExtResource("1_qcpdc")
+color_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 368.0
+offset_bottom = 184.0
+color = Color(0, 0, 0, 1)

@@ -14,3 +14,9 @@ class_name Waypoint
 
 ## Cannot move right from here
 @export var blocked_right: bool = false
+
+## Whether the current waypoint is interactable
+@export var is_interactable: bool = false
+
+## The scene to transition to when interacted
+@export_file("*.tscn") var interaction_scene: String

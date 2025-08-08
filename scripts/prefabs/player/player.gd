@@ -9,6 +9,7 @@ class_name Player
 
 @export_group("External Nodes")
 @export var waypoints: Node2D
+@export var screen_transition: ScreenTransition
 
 var current_waypoint: Waypoint = null
 
@@ -18,6 +19,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     if not current_waypoint:
         return
+
+    if input_cmp.get_interact() && current_waypoint.is_interactable:
+        screen_transition.fade_to_black()
+        screen_transition.faded_to_black.connect(get_tree().change_scene_to_file.bind(current_waypoint.interaction_scene))
 
     # Go to nearest waypoint indicated by input, or stay
     var closest_waypoint = waypoint_finder_cmp.get_closest_waypoint(current_waypoint, waypoints, input_cmp.get_input_vector())

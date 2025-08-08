@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvhog74xcjeck"]
+
+[ext_resource type="PackedScene" uid="uid://bshgw3x2gkwll" path="res://components/screen_transition.tscn" id="1_2jnr7"]
+
+[node name="Battle1" type="Node2D"]
+
+[node name="ScreenTransition" parent="." instance=ExtResource("1_2jnr7")]
+fade_from_black_on_ready = true
