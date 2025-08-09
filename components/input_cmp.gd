@@ -17,8 +17,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
         input_buffer = Vector2i(1, 0)
     if event.is_action_pressed("interact") && input_buffer == Vector2i.ZERO && input_vector == Vector2i.ZERO:
         interact = true
-    if event.is_action_pressed("ui_cancel"):
-        get_tree().quit()
 
 func _process(_delta: float) -> void:
     if input_vector == Vector2i.ZERO:

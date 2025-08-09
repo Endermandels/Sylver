@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkrtlrr8gj2pv"]
 
-[ext_resource type="Script" path="res://scripts/prefabs/player/player.gd" id="1_craxm"]
+[ext_resource type="Script" path="res://scripts/prefabs/overworld/player.gd" id="1_craxm"]
 [ext_resource type="Texture2D" uid="uid://ciraoyehjh8b6" path="res://assets/images/cat-overworld.png" id="1_p7egi"]
 [ext_resource type="PackedScene" uid="uid://blt4hvjokm8kd" path="res://components/input_cmp.tscn" id="3_qpr2x"]
 [ext_resource type="PackedScene" uid="uid://dw1wdejdm22bs" path="res://components/movement_cmp.tscn" id="4_ksu66"]

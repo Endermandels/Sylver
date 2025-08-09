@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5suik2btdepb"]
-
-[ext_resource type="Texture2D" uid="uid://cgsvryejswtpv" path="res://assets/images/wolf-battle.png" id="1_h8avg"]
-
-[node name="Player" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("1_h8avg")

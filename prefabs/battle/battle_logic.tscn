@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dts533ykd7s24"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/battle/battle_logic.gd" id="1_2ikgs"]
+
+[node name="BattleLogic" type="Node"]
+script = ExtResource("1_2ikgs")

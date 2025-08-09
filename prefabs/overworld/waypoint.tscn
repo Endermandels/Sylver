@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dki3vklsq8aj1"]
 
-[ext_resource type="Script" path="res://scripts/prefabs/waypoint/waypoint.gd" id="1_bvjiy"]
+[ext_resource type="Script" path="res://scripts/prefabs/overworld/waypoint.gd" id="1_bvjiy"]
 
 [node name="Waypoint" type="Node2D"]
 script = ExtResource("1_bvjiy")

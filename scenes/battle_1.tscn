@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvhog74xcjeck"]
+[gd_scene load_steps=7 format=3 uid="uid://bvhog74xcjeck"]
 
 [ext_resource type="PackedScene" uid="uid://bshgw3x2gkwll" path="res://components/screen_transition.tscn" id="1_2jnr7"]
-[ext_resource type="PackedScene" uid="uid://b5suik2btdepb" path="res://prefabs/battle/player/player.tscn" id="2_tfjww"]
-[ext_resource type="PackedScene" uid="uid://d2kawoi6hblwy" path="res://prefabs/battle/npc/npc.tscn" id="3_r5hmu"]
-[ext_resource type="Texture2D" uid="uid://dxy4p7nukn578" path="res://assets/images/cat-battle.png" id="4_epse7"]
+[ext_resource type="Script" path="res://scripts/scenes/mother_scene.gd" id="1_lci00"]
+[ext_resource type="PackedScene" uid="uid://umhvcegvtyuk" path="res://prefabs/battle/animals/wolf.tscn" id="2_j7c58"]
+[ext_resource type="PackedScene" uid="uid://dciarjtnorjru" path="res://prefabs/battle/animals/cat.tscn" id="3_8j7sa"]
+[ext_resource type="PackedScene" uid="uid://3gr3v3ybpyg6" path="res://prefabs/battle/npc_input.tscn" id="3_15xro"]
+[ext_resource type="PackedScene" uid="uid://dts533ykd7s24" path="res://prefabs/battle/battle_logic.tscn" id="5_xkxu5"]
 
 [node name="Battle1" type="Node2D"]
+script = ExtResource("1_lci00")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 368.0
@@ -22,18 +25,21 @@ color = Color(0.53, 0.3286, 0.212, 1)
 visible = false
 fade_from_black_on_ready = true
 
-[node name="PlayerTeam" type="Node2D" parent="."]
+[node name="Animals" type="Node2D" parent="."]
 
-[node name="Player" parent="PlayerTeam" instance=ExtResource("2_tfjww")]
-position = Vector2(48, 152)
+[node name="Wolf" parent="Animals" node_paths=PackedStringArray("battle_animal_input") instance=ExtResource("2_j7c58")]
+position = Vector2(32, 152)
+is_enemy = false
+battle_animal_input = NodePath("NPCInput")
 
-[node name="EnemyTeam" type="Node2D" parent="."]
+[node name="NPCInput" parent="Animals/Wolf" instance=ExtResource("3_15xro")]
 
-[node name="NPC" parent="EnemyTeam" instance=ExtResource("3_r5hmu")]
-position = Vector2(312, 152)
+[node name="Cat" parent="Animals" node_paths=PackedStringArray("battle_animal_input") instance=ExtResource("3_8j7sa")]
+position = Vector2(328, 152)
+battle_animal_input = NodePath("NPCInput")
 
-[node name="Sprite2D" parent="EnemyTeam/NPC" index="0"]
-texture = ExtResource("4_epse7")
-flip_h = true
+[node name="NPCInput" parent="Animals/Cat" instance=ExtResource("3_15xro")]
 
-[editable path="EnemyTeam/NPC"]
+[node name="BattleLogic" parent="." node_paths=PackedStringArray("animals", "screen_transition") instance=ExtResource("5_xkxu5")]
+animals = NodePath("../Animals")
+screen_transition = NodePath("../ScreenTransition")
